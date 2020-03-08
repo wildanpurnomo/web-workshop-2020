@@ -1,7 +1,10 @@
 $(document).ready(() => {
-    $('form').on('submit', () => {
-        var item = $('form input');
-        var inputData = {student: item.val()};
+    $('#form-kkn').on('submit', () => {
+        var inputName = $('#input-name').val();
+        var inputFaculty = $('#input-faculty').val();
+        var inputLocation = $('#input-location').val();
+
+        var inputData = { name: inputName, faculty: inputFaculty, location: inputLocation };
 
         $.ajax({
             type: 'POST',
