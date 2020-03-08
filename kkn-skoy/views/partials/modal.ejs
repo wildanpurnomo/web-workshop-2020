@@ -1,0 +1,39 @@
+<!-- Modal Add Data Karyawan-->
+<div id="form-add" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Data KKN</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-kkn" action="">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nama</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Fakultas</label>
+                        <input type="text" class="form-control" id="faculty" name="faculty"
+                            placeholder="Masukkan fakultas">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Lokasi KKN</label>
+                        <input type="text" class="form-control" id="location" name="location"
+                            placeholder="Masukkan Lokasi">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"
+                    onclick="document.getElementById('form-kkn').submit()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
