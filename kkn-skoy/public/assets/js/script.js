@@ -1,9 +1,9 @@
 // JQuery Approach
 $(document).ready(() => {
     $('#form-kkn').on('submit', () => {
-        var inputName = $('#input-name').val();
-        var inputFaculty = $('#input-faculty').val();
-        var inputLocation = $('#input-location').val();
+        var inputName = $('#input-name').val().trim();
+        var inputFaculty = $('#input-faculty').val().trim();
+        var inputLocation = $('#input-location').val().trim();
 
         var inputData = { name: inputName, faculty: inputFaculty, location: inputLocation };
 

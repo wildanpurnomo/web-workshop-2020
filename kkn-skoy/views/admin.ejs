@@ -39,11 +39,12 @@
                         Data KKN</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <button type="button" class="btn btn-primary" style="margin-bottom : 10px" data-toggle="modal" data-target="#form-add">Tambah Data KKN</button>
+                            <button type="button" class="btn btn-primary" style="margin-bottom : 10px"
+                                data-toggle="modal" data-target="#form-add">Tambah Data KKN</button>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Nama</th>
+                                        <th>Nama</th>   
                                         <th>Fakultas</th>
                                         <th>Lokasi KKN</th>
                                         <th>Aksi</th>
@@ -58,20 +59,15 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
+                                    <% for (var i = 0 ; i < kknData.length ; i++) { %>
                                     <tr>
-                                        <td>Bames Jond</td>
-                                        <td>Teknik</td>
-                                        <td>Sunda Empire</td>
-                                        <td><button class="btn btn-danger btn-xs"><span class="fa fa-trash"
-                                                    aria-hidden="true"></span></button></td>
+                                        <td><%= kknData[i].name %> </td>
+                                        <td><%= kknData[i].faculty %> </td>
+                                        <td><%= kknData[i].location %> </td>
+                                        <td><button id="<%= kknData[i].name%> " class="btn btn-danger btn-xs"><span class="fa fa-trash"
+                                            aria-hidden="true"></span></button></td>
                                     </tr>
-                                    <tr>
-                                        <td>Wildan Fajar Purnomo</td>
-                                        <td>MIPA</td>
-                                        <td>Burjo MM</td>
-                                        <td><button class="btn btn-danger btn-xs"><span class="fa fa-trash"
-                                                    aria-hidden="true"></span></button></td>
-                                    </tr>
+                                    <%} %>
                                 </tbody>
                             </table>
                         </div>
@@ -80,7 +76,7 @@
             </div>
             <!-- /.container-fluid -->
 
-            <%- include('./partials/modal.ejs') %> 
+            <%- include('./partials/modal.ejs') %>
             <%- include('./partials/footer.ejs') %>
 
         </div>
