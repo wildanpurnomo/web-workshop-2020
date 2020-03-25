@@ -7,7 +7,7 @@ exports.get = (req, res, next) => {
         .then((listPeserta) => {
             res.send(listPeserta);
         })
-        .catch(next(new Error("Error get all peserta")))
+        .catch(next)
 }
 
 // function getByName (with regex a.k.a regular expression)
@@ -17,7 +17,7 @@ exports.getByName = (req, res, next) => {
         .then((listPeserta) => {
             res.send(listPeserta)
         })
-        .catch(next(new Error("Error get by name")))
+        .catch(next)
 }
 
 // function post/send
@@ -27,7 +27,7 @@ exports.post = (req, res, next) => {
         .then( (peserta) => {
             res.send(peserta);
         } )
-        .catch(next(new Error("Error create peserta")))
+        .catch(next)
 }
 
 // function put/update
@@ -41,7 +41,7 @@ exports.put = (req, res, next) => {
                     res.send(updated);
                 })
         })
-        .catch(next(new Error("Error update peserta")))
+        .catch(next)
 }
 
 // function delete
@@ -55,5 +55,5 @@ exports.delete = (req, res, next) => {
                     res.send(updatedList);
                 })
         })
-        .catch(next(new Error("Error delete peserta")))
+        .catch(next)
 }

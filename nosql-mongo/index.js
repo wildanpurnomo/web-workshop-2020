@@ -2,12 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const pesertaRouter = require('./components/pesertaKKN/pesertaRouter.js');
 const searchRouter = require('./components/searchWiki/searchRouter');
-
-// activate .env access
-dotenv.config();
 
 // connect to DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/myapi", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
