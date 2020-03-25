@@ -5,6 +5,8 @@ const controller = require('./pesertaController.js');
 // route for GET all peserta
 router.get('/peserta', controller.get);
 
+router.get('/peserta/:name', controller.getByName);
+
 // route for POST peserta
 router.post('/peserta', controller.post);
 
