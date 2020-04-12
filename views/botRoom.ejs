@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Room</title>
+    <%- include('./head.ejs')%>
+</head>
+
+<body>
+    <div id="title">
+        <h3>Chatbot</h3>
+    </div>
+    <div id="chat">
+        <div id="chatWindow">
+        </div>
+        <div id="inputWindow">
+            <div class="row">
+                <div class="col-10">
+                    <input id="message" type="text" placeholder="Message" />
+                </div>
+                <div class="col">
+                    <button style="font-family: 'Roboto', sans-serif; text-decoration: bold" id="send" type="button" class="btn btn-outline-primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket IO Client -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <!-- Our own script -->
+    <script src="/js/chatbot.js"></script>
+</body>
+
+</html>
