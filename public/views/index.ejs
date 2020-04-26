@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie App</title>
+    <%- include('./partials/head.ejs') %> 
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="movies container">
+        <div class="card text-center" style="margin-top: 16px; margin-bottom: 16px; ">
+            <img src="../img/homescreen/cinema-96x96.png" alt="Card image cap" style="object-fit: contain;">
+            <div class="card-body">
+                <h5 class="card-title">Movie 1</h5>
+                <p>genre</p>
+                <p class="card-text">Description</p>
+            </div>
+            <div class="card-body">
+                <a href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+        <div class="card text-center" style="margin-top: 16px; margin-bottom: 16px; ">
+            <img src="../img/homescreen/cinema-96x96.png" alt="Card image cap" style="object-fit: contain;">
+            <div class="card-body">
+                <h5 class="card-title">Movie 2</h5>
+                <p>genre</p>
+                <p class="card-text">Description</p>
+            </div>
+            <div class="card-body">
+                <a href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/modal.ejs') %> 
+    <%- include('./partials/js.ejs') %> 
+</body>
+
+</html>
