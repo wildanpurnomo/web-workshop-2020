@@ -1,1 +1,1 @@
-Meetup 5: PWA #2: Firestore and Firestore Persistence (offline) w/ IndexedDB.
+Meetup 6: PWA #2: Firestore and Firestore Persistence (offline) w/ IndexedDB.
