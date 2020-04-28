@@ -1,4 +1,4 @@
-const STATIC_CACHE_NAME = 'static-cache-v3';
+const STATIC_CACHE_NAME = 'static-cache-v4';
 const DYNAMIC_CACHE_NAME = 'dynamic-cache-v1';
 
 const urlsToCache = [
@@ -10,9 +10,22 @@ const urlsToCache = [
     '/js/jquery-3.4.1.min.js',
     '/js/bootstrap.min.js',
     '/js/app.js',
+    '/js/home.js',
     '/manifest.json',
     '/img/homescreen/cinema-144x144.png'
 ];
+
+const limitCacheSize = (cacheName, size) => {
+    caches.open(cacheName)
+        .then((cache) =>{
+            cache.keys()
+                .then((keys) => {
+                    if (keys.length > size) {
+                        cache.delete(keys[0]).then(limitCacheSize(cacheName, size));
+                    }
+                })
+        })
+}
 
 // listen to install event
 self.addEventListener('install', (event) => {
@@ -44,20 +57,23 @@ self.addEventListener('activate', (event) => {
 // fetch event
 self.addEventListener('fetch', (event) => {
     // console.log("fetch event", event.request);
-    event.respondWith(
-        caches.match(event.request)
-            .then((cacheResponse) => {
-                return cacheResponse || fetch(event.request)
-                    .then((fetchResponse) => {
-                        return caches.open(DYNAMIC_CACHE_NAME)
-                            .then((cache) => {
-                                cache.put(event.request.url, fetchResponse.clone());
-                                return fetchResponse;
-                            })
-                    });
-            })
-            .catch((err) => {
-                return caches.match('/views/fallback.html');
-            })
-    )
+    if (event.request.url.indexOf('firestore.googleapis.com') === -1) {
+        event.respondWith(
+            caches.match(event.request)
+                .then((cacheResponse) => {
+                    return cacheResponse || fetch(event.request)
+                        .then((fetchResponse) => {
+                            return caches.open(DYNAMIC_CACHE_NAME)
+                                .then((cache) => {
+                                    cache.put(event.request.url, fetchResponse.clone());
+                                    limitCacheSize(DYNAMIC_CACHE_NAME, 5);
+                                    return fetchResponse;
+                                })
+                        });
+                })
+                .catch((err) => {
+                    return caches.match('/views/fallback.html');
+                })
+        )
+    }
 })

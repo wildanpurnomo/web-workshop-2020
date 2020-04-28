@@ -5,39 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Movie App</title>
-    <%- include('./partials/head.ejs') %> 
+    <%- include('./partials/head.ejs') %>
 </head>
 
 <body>
     <%- include('./partials/nav.ejs') %>
 
     <div class="movies container">
-        <div class="card text-center" style="margin-top: 16px; margin-bottom: 16px; ">
-            <img src="../img/homescreen/cinema-96x96.png" alt="Card image cap" style="object-fit: contain;">
-            <div class="card-body">
-                <h5 class="card-title">Movie 1</h5>
-                <p>genre</p>
-                <p class="card-text">Description</p>
-            </div>
-            <div class="card-body">
-                <a href="#" class="card-link">Delete</a>
-            </div>
-        </div>
-        <div class="card text-center" style="margin-top: 16px; margin-bottom: 16px; ">
-            <img src="../img/homescreen/cinema-96x96.png" alt="Card image cap" style="object-fit: contain;">
-            <div class="card-body">
-                <h5 class="card-title">Movie 2</h5>
-                <p>genre</p>
-                <p class="card-text">Description</p>
-            </div>
-            <div class="card-body">
-                <a href="#" class="card-link">Delete</a>
-            </div>
-        </div>
     </div>
 
-    <%- include('./partials/modal.ejs') %> 
-    <%- include('./partials/js.ejs') %> 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDSQU7LSLiOk2MS8cthK-KZuI16tpD0T6s",
+            authDomain: "mymovie-6502e.firebaseapp.com",
+            databaseURL: "https://mymovie-6502e.firebaseio.com",
+            projectId: "mymovie-6502e",
+            storageBucket: "mymovie-6502e.appspot.com",
+            messagingSenderId: "47488825998",
+            appId: "1:47488825998:web:329e511d0c7eee779767df",
+            measurementId: "G-5R9QDLZR6E"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <%- include('./partials/modal.ejs') %>
+    <%- include('./partials/js.ejs') %>
+    <script src="/js/home.js"></script>
+    <script src="/js/db.js"></script>
 </body>
 
 </html>
